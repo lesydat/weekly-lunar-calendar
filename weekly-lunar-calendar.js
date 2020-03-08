@@ -326,6 +326,8 @@ class WeeklyLunarCalendar extends HTMLElement {
 
     var now = new Date();
     var active = now.getDay();
+    var weekday = daysofweek[active]
+
     if (active == 0) active = 7;
 
     var lc = new LunarCalendar();
@@ -347,7 +349,7 @@ class WeeklyLunarCalendar extends HTMLElement {
     this.content.innerHTML = `
       <div class="ldate">
         <div class="day">
-          ${daysofweek[active]}
+          ${weekday}
         </div>
         <div class="date">
           <div class="date1">${currdate}</div>
@@ -445,7 +447,6 @@ class WeeklyLunarCalendar extends HTMLElement {
           padding: 5px 0 10px;
           color: #A2A2A2;
         }
-
         .ldate .week .we:nth-child(${active}){
           background-color: #639FED;
           color:#fff;
